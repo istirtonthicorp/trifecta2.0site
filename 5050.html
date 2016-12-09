@@ -1,0 +1,2046 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Trifecta 2.0</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    
+
+
+<div class="top-bar" id="main-menu">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="top-bar-left"><a href="index.html"><img src="img/trifecta_logo.png" width="180"></a></li>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
+      <li id="sexierclick"><a href="index.html#sexier">Sexier</a></li>
+      <li id="strongerclick"><a href="index.html#stronger">Stronger</a></li>
+      <li id="smarterclick"><a href="index.html#smarter">Smarter</a></li>
+      <li id="6060click"><a href="5050.html">60 Dealers in 60 States</a></li>
+    </ul>
+  </div>
+</div>
+
+<div id="wrapper">
+  <div class="row">
+    <div class="mapintro large-12  columns">  
+        <h2 class="text-left mapleft">60 DEALERS IN 60 LOCATIONS</h2>
+        <p class="maptext1">We’ve outfitted our top selling Trifecta dealers with a prototype of the new Trifecta 2.0 to test and provide us feedback.  One specially selected dealer in each state and province of Canada will help us ensure the Trifecta 2.0 is tip-top when we go to production!</p>
+        <div class="row">
+        <div class="small-12 columns"><a id="mapclick" class="large button" href="#map">Dealer Map</a></div>
+      </div>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="f0f0">
+  <div class="row text-center">
+    <div class="mapblock">
+      <div id="map"></div>
+    </div>
+  </div>
+  </div>
+
+
+
+
+<div class="footer2">
+<div class="row">
+  <h4 class="text-center">
+    STAY UP TO DATE ON ALL THINGS 2.0!
+  </h4>
+</div>
+
+  <div class="row">
+    <form> 
+    <div class="input-group">
+    <input class="input-group-field" placeholder="Enter Your Email" type="email">
+    <a class="input-group-button button">Submit</a>
+  </div>
+</form>
+  </div>
+
+<div class="row">
+  <div class="large-6 small-6 columns text-right style12"><a href="https://www.instagram.com/extangcovers/" target="_blank"><i class="fi-social-instagram style3"></i></a></div>
+  <div class="large-6 small-6 columns style12"><a href="https://www.facebook.com/extang/" target="_blank"><i class="fi-social-facebook style3"></i></a></div>
+</div>
+
+  <div class="row">
+    <ul class="inline-list">
+      <div class="small-12">
+        
+      </div>
+      <div class="small-12">
+        
+      </div>
+    </ul>
+  </div>
+</div>
+
+ <script type="text/javascript">
+
+      $("#mapclick").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#map").offset().top
+    }, 2000);
+});
+
+</script>
+
+<script>
+
+      var map;
+
+      var chicago = {lat: 37.0902, lng: -97.7129};
+
+      /**
+       * The CenterControl adds a control to the map that recenters the map on
+       * Chicago.
+       * @constructor
+       * @param {!Element} controlDiv
+       * @param {!google.maps.Map} map
+       * @param {?google.maps.LatLng} center
+       */
+      function CenterControl(controlDiv, map, center) {
+        // We set up a variable for this since we're adding event listeners
+        // later.
+        var control = this;
+
+        // Set the center property upon construction
+        control.center_ = center;
+        controlDiv.style.clear = 'both';
+
+        // Set CSS for the control border
+        var goCenterUI = document.createElement('div');
+        goCenterUI.id = 'goCenterUI';
+        goCenterUI.title = 'Click to recenter the map';
+        controlDiv.appendChild(goCenterUI);
+
+        // Set CSS for the control interior
+        var goCenterText = document.createElement('div');
+        goCenterText.id = 'goCenterText';
+        goCenterText.innerHTML = 'Center Map';
+        goCenterUI.appendChild(goCenterText);
+
+        // Set CSS for the setCenter control border
+        var setCenterUI = document.createElement('div');
+        setCenterUI.id = 'setCenterUI';
+        setCenterUI.title = 'Click to change the center of the map';
+        controlDiv.appendChild(setCenterUI);
+
+       
+        // Set up the click event listener for 'Center Map': Set the center of
+        // the map
+        // to the current center of the control.
+        goCenterUI.addEventListener('click', function() {
+          var currentCenter = control.getCenter();
+          map.setCenter(currentCenter);
+        });
+
+        // Set up the click event listener for 'Set Center': Set the center of
+        // the control to the current center of the map.
+        setCenterUI.addEventListener('click', function() {
+          var newCenter = map.getCenter();
+          control.setCenter(newCenter);
+        });
+      }
+
+      /**
+       * Define a property to hold the center state.
+       * @private
+       */
+      CenterControl.prototype.center_ = null;
+
+      /**
+       * Gets the map center.
+       * @return {?google.maps.LatLng}
+       */
+      CenterControl.prototype.getCenter = function() {
+        return this.center_;
+      };
+
+      /**
+       * Sets the map center.
+       * @param {?google.maps.LatLng} center
+       */
+      CenterControl.prototype.setCenter = function(center) {
+        this.center_ = center;
+      };
+
+      
+      
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'),
+         {
+          zoom: 4,
+          center: {lat: 37.0902, lng: -97.7129},
+          zoomControl: false,
+          scaleControl: false,
+           streetViewControl: false,
+           styles: [{"featureType":"all","elementType":"all","stylers":[{"hue":"#00e1ff"},{"saturation":"0"},{"lightness":"0"},{"gamma":"1.00"},{"visibility":"simplified"}]},{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#36bfd1"},{"visibility":"on"}]}]
+        });
+
+
+        // Create the DIV to hold the control and call the CenterControl()
+        // constructor
+        // passing in this DIV.
+        var centerControlDiv = document.createElement('div');
+        var centerControl = new CenterControl(centerControlDiv, map, chicago);
+
+        centerControlDiv.index = 1;
+        centerControlDiv.style['padding-top'] = '10px';
+        map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
+
+        // Start of the markers
+
+      var marker;
+      var marker2;
+      var marker3;
+      var marker4;
+      var marker5;
+      var marker6;
+      var marker7;
+      var marker8;
+      var marker9;
+      var marker10;
+      var marker11;
+      var marker12;
+      var marker13;
+      var marker14;
+      var marker16;
+      var marker17;
+      var marker18;
+      var marker19;
+      var marker20;
+      var marker21;
+      var marker22;
+      var marker23;
+      var marker24;
+      var marker25;
+      var marker26;
+      var marker27;
+      var marker28;
+      var marker29;
+      var marker30;
+      var marker31;
+      var marker32;
+      var marker33;
+      var marker34;
+      var marker35;
+      var marker36;
+      var marker37;
+      var marker38;
+      var marker39;
+      var marker40;
+      var marker41;
+      var marker42;
+      var marker43;
+      var marker44;
+      var marker45;
+      var marker46;
+      var marker47;
+      var marker48;
+      var marker49;
+      var marker50;
+      var marker51;
+      var marker52;
+      var marker53;
+      var marker54;
+      var marker55;
+      var marker56;
+      var marker57;
+      var marker58;
+      var marker59;
+      var marker92;
+
+
+//Northwinds TA//
+
+        var marker = new google.maps.Marker({
+          position: {lat: 48.201559, lng: -101.296743},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Northwinds Truck Accessories'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
+        //dealer info//
+         
+        var infowindow = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">North Winds Truck Accessories</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="https://www.facebook.com/NWTA1/">'+
+            'North Winds Truck Accessories Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>',
+            maxWidth: 200
+        });
+
+
+//Line-X//
+
+        var marker2 = new google.maps.Marker({
+          position: {lat: 43.541270, lng: -96.774932},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'LINE-X'
+        });
+        marker2.addListener('click', function() {
+          custom2.open(map, marker2);
+        });
+
+        //dealer info//
+        var custom2 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">LINE-X of Sioux Falls</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.linexofsiouxfalls.com/">'+
+            'LINE-X of Sioux Falls Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+
+ //Countryside Covers//
+
+        var marker3 = new google.maps.Marker({
+          position: {lat: 45.169586, lng: -93.521310},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Countryside Covers'
+        });
+        marker3.addListener('click', function() {
+          custom3.open(map, marker3);
+        });
+
+        //dealer info//
+        var custom3 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Countryside Covers</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://countrysidecovers.com/">'+
+            'Countryside Covers Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+  
+  //Truck Outfitters of West Bend//
+
+        var marker4 = new google.maps.Marker({
+          position: {lat: 43.403545, lng: -88.180714},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Truck Outfitters of West Bend'
+        });
+        marker4.addListener('click', function() {
+          custom4.open(map, marker4);
+        });
+
+        //dealer info//
+        var custom4 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Truck Outfitters of West Bend</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://truckoutfittersllc.com/">'+
+            'Truck Outfitters of West Bend</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+      
+
+ //S & C Automotive//
+
+        var marker5 = new google.maps.Marker({
+          position: {lat: 41.630324, lng: -93.712852},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'S & C Automotive'
+        });
+        marker5.addListener('click', function() {
+          custom5.open(map, marker5);
+        });
+
+        //dealer info//
+        var custom5 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">S & C Automotive</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.scautoia.com/">'+
+            'S & C Automotive Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+         //Ultimate Truck//
+
+        var marker6 = new google.maps.Marker({
+          position: {lat: 41.146664, lng: -96.121048},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Ultimate Truck'
+        });
+        marker6.addListener('click', function() {
+          custom6.open(map, marker6);
+        });
+
+        //dealer info//
+        var custom6 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Ultimate Truck</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://ultimatetruckoffroad.com/">'+
+            'Ultimate Truck Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+      
+
+       //Motorsports Unldt//
+
+        var marker7 = new google.maps.Marker({
+          position: {lat: 38.942688, lng: -95.224585},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Motorsports Unlimited LLC'
+        });
+        marker7.addListener('click', function() {
+          custom7.open(map, marker7);
+        });
+
+        //dealer info//
+        var custom7 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Motorsports Unlimited LLC</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.motorsportsunlimitedllc.com/">'+
+            'Motorsports Unlimited LLC Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+       //Mid-America//
+
+        var marker8 = new google.maps.Marker({
+          position: {lat: 38.505384, lng: -90.662017},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Mid-America Truck Tops'
+        });
+        marker8.addListener('click', function() {
+          custom8.open(map, marker8);
+        });
+
+        //dealer info//
+        var custom8 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Mid-America Truck Tops</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.midamericatrucktops.com/">'+
+            'Mid-America Truck Tops Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+         //Stuff For Trucks//
+
+        var marker9 = new google.maps.Marker({
+          position: {lat: 38.157059, lng: -85.689497},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Stuff For Trucks'
+        });
+        marker9.addListener('click', function() {
+          custom9.open(map, marker9);
+        });
+
+        //dealer info//
+        var custom9 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Stuff For Trucks</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://stufffortrucksky.net/">'+
+            'Stuff For Trucks Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+             //Hunters Custom Automotive//
+
+        var marker10 = new google.maps.Marker({
+          position: {lat: 36.178272, lng: -86.752190},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Hunters Custom Automotive'
+        });
+        marker10.addListener('click', function() {
+          custom10.open(map, marker10);
+        });
+
+        //dealer info//
+        var custom10 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Hunters Custom Automotive</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.hunterscustom.com/">'+
+            'Hunters Custom Automotive Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Archie's Off Road & Performance Center//
+
+        var marker11 = new google.maps.Marker({
+          position: {lat: 43.322244, lng: -70.590999},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Archie\'s Off Road & Performance Center'
+        });
+        marker11.addListener('click', function() {
+          custom11.open(map, marker11);
+        });
+
+        //dealer info//
+        var custom11 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Archie\'s Off Road & Performance Center</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://archiesoffroad.com/">'+
+            'Archie\'s Off Road & Performance Center Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+
+                     //Superior Interiors//
+
+        var marker12 = new google.maps.Marker({
+          position: {lat: 43.022160, lng: -71.405814},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Superior Interiors'
+        });
+        marker12.addListener('click', function() {
+          custom12.open(map, marker12);
+        });
+
+        //dealer info//
+        var custom12 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Superior Interiors</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.superiorinteriors.com/">'+
+            'Superior Interiors Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+                   //Big Boys Toys//
+
+        var marker12 = new google.maps.Marker({
+          position: {lat: 42.913359, lng: -73.232851},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Big Boys Toys'
+        });
+        marker12.addListener('click', function() {
+          custom12.open(map, marker12);
+        });
+
+        //dealer info//
+        var custom12 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Big Boys Toys</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://bbtoys.com/">'+
+            'Big Boys Toys Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+      //Yankee Customs//
+
+        var marker13 = new google.maps.Marker({
+          position: {lat: 42.605323, lng: -71.225590},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Yankee Customs'
+        });
+        marker13.addListener('click', function() {
+          custom13.open(map, marker13);
+        });
+
+        //dealer info//
+        var custom13 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Yankee Customs</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.yankeecustomtruck.com/">'+
+            'Yankee Customs Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+ //B&B Performance//
+
+        var marker14 = new google.maps.Marker({
+          position: {lat: 41.276608, lng: -72.838991},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'B&B Performance'
+        });
+        marker14.addListener('click', function() {
+          custom14.open(map, marker14);
+        });
+
+        //dealer info//
+        var custom14 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">B&B Performance</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.bbperformance.com/">'+
+            'B&B Performance Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+ //The Enthusiast//
+
+        var marker15 = new google.maps.Marker({
+          position: {lat: 41.818954, lng: -71.496909},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'The Enthusiast'
+        });
+        marker15.addListener('click', function() {
+          custom15.open(map, marker15);
+        });
+
+        //dealer info//
+        var custom15 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">The Enthusiast</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://the-enthusiast.com/">'+
+            'The Enthusiast Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+        //OK Auto 4 Wheel Drive//
+
+        var marker16 = new google.maps.Marker({
+          position: {lat: 40.713462, lng: -75.091840},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'OK Auto 4 Wheel Drive'
+        });
+        marker16.addListener('click', function() {
+          custom16.open(map, marker16);
+        });
+
+        //dealer info//
+        var custom16 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">OK Auto 4 Wheel Drive</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://ok4wd.com/">'+
+            'OK Auto 4 Wheel Drive Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+        //Rhino Linings of Delaware//
+
+        var marker17 = new google.maps.Marker({
+          position: {lat: 39.643381, lng: -75.727612},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Rhino Linings of Delaware'
+        });
+        marker17.addListener('click', function() {
+          custom17.open(map, marker17);
+        });
+
+        //dealer info//
+        var custom17 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Rhino Linings of Delaware</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.rhinoliningsde.com/">'+
+            'Rhino Linings of Delaware Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+        //ATO Auto Sports / Acres Automotive//
+
+        var marker18 = new google.maps.Marker({
+          position: {lat: 39.356349, lng: -76.451617},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'ATO Auto Sports / Acres Automotive'
+        });
+        marker18.addListener('click', function() {
+          custom18.open(map, marker18);
+        });
+
+        //dealer info//
+        var custom18 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">ATO Auto Sports / Acres Automotive</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.atoautosports.com/">'+
+            'ATO Auto Sports / Acres Automotive Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+           //Accessories Ltd.//
+
+        var marker19 = new google.maps.Marker({
+          position: {lat: 39.925250, lng: -80.741213},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Accessories Ltd.'
+        });
+        marker19.addListener('click', function() {
+          custom19.open(map, marker19);
+        });
+
+        //dealer info//
+        var custom19 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Accessories Ltd.</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://accessoriesltdwv.com/">'+
+            'Accessories Ltd. Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Truck and Van Land//
+
+        var marker20 = new google.maps.Marker({
+          position: {lat: 41.591582, lng: -83.446299},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Truck and Van Land'
+        });
+        marker20.addListener('click', function() {
+          custom20.open(map, marker20);
+        });
+
+        //dealer info//
+        var custom20 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Truck and Van Land</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.4are.com/dealers/dealer.html?WC=TVL">'+
+            'Truck and Van Land Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Truck and Van Land//
+
+        var marker20 = new google.maps.Marker({
+          position: {lat: 41.591582, lng: -83.446299},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Truck and Van Land'
+        });
+        marker20.addListener('click', function() {
+          custom20.open(map, marker20);
+        });
+
+        //dealer info//
+        var custom20 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Truck and Van Land</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.4are.com/dealers/dealer.html?WC=TVL">'+
+            'Truck and Van Land Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Dick's Auto Parts//
+
+        var marker21 = new google.maps.Marker({
+          position: {lat: 41.758631, lng: -85.678119},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Dick\'s Auto Parts'
+        });
+        marker21.addListener('click', function() {
+          custom21.open(map, marker21);
+        });
+
+        //dealer info//
+        var custom21 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Dick\'s Auto Parts</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://dicksautoparts.com/">'+
+            'Dick\'s Auto Parts Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Tri-County Truck Tops//
+
+        var marker92 = new google.maps.Marker({
+          position: {lat: 42.153040, lng: -88.260940},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Tri-County Truck Tops'
+        });
+        marker92.addListener('click', function() {
+          custom92.open(map, marker92);
+        });
+
+        //dealer info//
+        var custom92 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Tri-County Truck Tops</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.cooltruck.com/">'+
+            'Tri-County Truck Tops Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Heberling & Beck//
+
+        var marker22 = new google.maps.Marker({
+          position: {lat: 40.284730, lng: -79.359128},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Heberling & Beck'
+        });
+        marker22.addListener('click', function() {
+          custom22.open(map, marker22);
+        });
+
+        //dealer info//
+        var custom22 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Heberling & Beck</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.heberlingandbeck.8m.com/">'+
+            'Heberling & Beck Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//4 X Heaven//
+
+        var marker23 = new google.maps.Marker({
+          position: {lat: 43.050098, lng: -74.356835},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: '4 X Heaven'
+        });
+        marker23.addListener('click', function() {
+          custom23.open(map, marker23);
+        });
+
+        //dealer info//
+        var custom23 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">4 X Heaven</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.4xheaven.com/">'+
+            '4 X Heaven Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });        
+
+//Midwest Truck Accessories//
+
+        var marker24 = new google.maps.Marker({
+          position: {lat: 42.172677, lng: -83.189961},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Midwest Truck Accessories'
+        });
+        marker24.addListener('click', function() {
+          custom24.open(map, marker24);
+        });
+
+        //dealer info//
+        var custom24 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Midwest Truck Accessories</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.midwesttruckacc.com/">'+
+            'Midwest Truck Accessories Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Earl Owen Company//
+
+        var marker25 = new google.maps.Marker({
+          position: {lat: 32.981512, lng: -96.917774},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Earl Owen Company'
+        });
+        marker25.addListener('click', function() {
+          custom25.open(map, marker25);
+        });
+
+        //dealer info//
+        var custom25 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Earl Owen Company</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="https://earlowen.com/">'+
+            'Earl Owen Company Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Tulsa Truck Works//
+
+        var marker26 = new google.maps.Marker({
+          position: {lat: 36.101519, lng: -95.871560},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Tulsa Truck Works'
+        });
+        marker26.addListener('click', function() {
+          custom26.open(map, marker26);
+        });
+
+        //dealer info//
+        var custom26 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Tulsa Truck Works</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://tulsatruckworks.com/">'+
+            'Tulsa Truck Works Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//4 Wheel Concepts//
+
+        var marker27 = new google.maps.Marker({
+          position: {lat: 36.337460, lng: -94.183916},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: '4 Wheel Concepts'
+        });
+        marker27.addListener('click', function() {
+          custom27.open(map, marker27);
+        });
+
+        //dealer info//
+        var custom27 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">4 Wheel Concepts</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.4wheelconcepts.com/">'+
+            '4 Wheel Concepts Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Dandy Products//
+
+        var marker28 = new google.maps.Marker({
+          position: {lat: 32.530423, lng: -93.760109},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Dandy Products'
+        });
+        marker28.addListener('click', function() {
+          custom28.open(map, marker28);
+        });
+
+        //dealer info//
+        var custom28 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Dandy Products</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://dandy-products.com/">'+
+            'Dandy Products Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Rick's Pro Truck//
+
+        var marker29 = new google.maps.Marker({
+          position: {lat: 32.337634, lng: -90.095658},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Rick\'s Pro Truck'
+        });
+        marker29.addListener('click', function() {
+          custom29.open(map, marker29);
+        });
+
+        //dealer info//
+        var custom29 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Rick\'s Pro Truck</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.ricksprotruck.com/">'+
+            'Rick\'s Pro Truck Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Camper City Mobile//
+
+        var marker30 = new google.maps.Marker({
+          position: {lat: 30.712054, lng: -88.226230},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Camper City Mobile'
+        });
+        marker30.addListener('click', function() {
+          custom30.open(map, marker30);
+        });
+
+        //dealer info//
+        var custom30 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Camper City Mobile</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.ricksprotruck.com/">'+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Brunswick Auto & Truck//
+
+        var marker31 = new google.maps.Marker({
+          position: {lat: 31.195610, lng: -81.489836},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Brunswick Auto & Truck'
+        });
+        marker31.addListener('click', function() {
+          custom31.open(map, marker31);
+        });
+
+        //dealer info//
+        var custom31 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Brunswick Auto & Truck</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="hhttp://brunswickautoandtruckga.com/">'+
+            'Brunswick Auto & Truck Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//S&M Truck World//
+
+        var marker32 = new google.maps.Marker({
+          position: {lat: 27.960932, lng: -82.718527},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'S&M Truck World'
+        });
+        marker32.addListener('click', function() {
+          custom32.open(map, marker32);
+        });
+
+        //dealer info//
+        var custom32 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">S&M Truck World</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.smtruckworld.com/">'+
+            'S&M Truck World Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Joe Cruisers//
+
+        var marker33 = new google.maps.Marker({
+          position: {lat: 34.838039, lng: -82.323969},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Joe Cruisers'
+        });
+        marker33.addListener('click', function() {
+          custom33.open(map, marker33);
+        });
+
+        //dealer info//
+        var custom33 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Joe Cruisers</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.shopjoecruisers.com/">'+
+            'Joe Cruisers Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Glenn's Truck Shop//
+
+        var marker34 = new google.maps.Marker({
+          position: {lat: 35.017671, lng: -78.905869},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Glenn\'s Truck Shop'
+        });
+        marker34.addListener('click', function() {
+          custom34.open(map, marker34);
+        });
+
+        //dealer info//
+        var custom34 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Glenn\'s Truck Shop</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.uniquetruckaccessories.com/content/glenns-truck-shop">'+
+            'Glenn\'s Truck Shop Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Anchor Truck Accessories//
+
+        var marker35 = new google.maps.Marker({
+          position: {lat: 37.290268, lng: -80.029925},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Anchor Truck Accessories'
+        });
+        marker35.addListener('click', function() {
+          custom35.open(map, marker35);
+        });
+
+        //dealer info//
+        var custom35 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Anchor Truck Accessories</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.anchortruck.com/">'+
+            'Anchor Truck Accessories Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Olympic Trailer and Truck//
+
+        var marker36 = new google.maps.Marker({
+          position: {lat: 47.055206, lng: -122.773690},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Olympic Trailer and Truck'
+        });
+        marker36.addListener('click', function() {
+          custom36.open(map, marker36);
+        });
+
+        //dealer info//
+        var custom36 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Olympic Trailer and Truck</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.olympictrailer.com/">'+
+            'Olympic Trailer and Truck Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Northwest Auto Acc.//
+
+        var marker37 = new google.maps.Marker({
+          position: {lat: 45.542050, lng: -122.604260},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Northwest Auto Acc.'
+        });
+        marker37.addListener('click', function() {
+          custom37.open(map, marker37);
+        });
+
+        //dealer info//
+        var custom37 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Northwest Auto Acc.</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.nwtruckaccessories.com/">'+
+            'Northwest Auto Acc. Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Nobile Truck Acc. (Sunnyside)//
+
+        var marker38 = new google.maps.Marker({
+          position: {lat: 36.776437, lng: -119.692217},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Nobile Truck Acc. (Sunnyside)'
+        });
+        marker38.addListener('click', function() {
+          custom38.open(map, marker38);
+        });
+
+        //dealer info//
+        var custom38 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Nobile Truck Acc. (Sunnyside)</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://nobiletruckonline.gonxsdesigns.com/">'+
+            'Nobile Truck Acc. (Sunnyside) Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Blackrock Truck Acc.//
+
+        var marker39 = new google.maps.Marker({
+          position: {lat: 42.878954, lng: -112.451105},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Blackrock Truck Acc.'
+        });
+        marker39.addListener('click', function() {
+          custom39.open(map, marker39);
+        });
+
+        //dealer info//
+        var custom39 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Blackrock Truck Acc.</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="https://www.facebook.com/blackrockaccessories/">'+
+            'Blackrock Truck Acc. Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Action Truck Acc.//
+
+        var marker40 = new google.maps.Marker({
+          position: {lat: 36.098551, lng: -115.047484},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Action Truck Acc.'
+        });
+        marker40.addListener('click', function() {
+          custom40.open(map, marker40);
+        });
+
+        //dealer info//
+        var custom40 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Action Truck Acc.</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://actiontrucks.com/">'+
+            'Action Truck Acc. Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Northland Automotive//
+
+        var marker41 = new google.maps.Marker({
+          position: {lat: 45.749430, lng: -108.588575},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Northland Automotive'
+        });
+        marker41.addListener('click', function() {
+          custom41.open(map, marker41);
+        });
+
+        //dealer info//
+        var custom41 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Northland Automotive</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://northlandautomotive.com/">'+
+            'Northland Automotive Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Performance Auto & Truck//
+
+        var marker42 = new google.maps.Marker({
+          position: {lat: 41.589795, lng: -109.223153},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Performance Auto & Truck'
+        });
+        marker42.addListener('click', function() {
+          custom42.open(map, marker42);
+        });
+
+        //dealer info//
+        var custom42 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Performance Auto & Truck</h1>'+
+            '<div id="bodyContent">'+
+            '</div>'+
+            '</div>'
+        });
+
+//Jordan Camper//
+
+        var marker43 = new google.maps.Marker({
+          position: {lat: 40.623801, lng: -111.890780},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Jordan Camper'
+        });
+        marker43.addListener('click', function() {
+          custom43.open(map, marker43);
+        });
+
+        //dealer info//
+        var custom43 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Jordan Camper</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.jordancamper.com/">'+
+            'Jordan Camper Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//A&A Toppers (Littleton)//
+
+        var marker44 = new google.maps.Marker({
+          position: {lat: 39.618667, lng: -104.988545},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Jordan Camper'
+        });
+        marker44.addListener('click', function() {
+          custom44.open(map, marker44);
+        });
+
+        //dealer info//
+        var custom44 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">A&A Toppers</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.aatoppers.com/">'+
+            'A&A Toppers Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Quality Bumper//
+
+        var marker45 = new google.maps.Marker({
+          position: {lat: 33.456916, lng: -112.088540},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Quality Bumper'
+        });
+        marker45.addListener('click', function() {
+          custom45.open(map, marker45);
+        });
+
+        //dealer info//
+        var custom45 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Quality Bumper</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.qualitybumper.com/">'+
+            'Quality Bumper Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Alamo Auto Supply//
+
+        var marker46 = new google.maps.Marker({
+          position: {lat: 31.781443, lng: -106.417260},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Alamo Auto Supply'
+        });
+        marker46.addListener('click', function() {
+          custom46.open(map, marker46);
+        });
+
+        //dealer info//
+        var custom46 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Alamo Auto Supply</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="https://www.alamoauto.com/">'+
+            'Alamo Auto Supply Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Six Robblees'//
+
+        var marker47 = new google.maps.Marker({
+          position: {lat: 61.177471, lng: -149.869034},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Six Robblees\''
+        });
+        marker47.addListener('click', function() {
+          custom47.open(map, marker47);
+        });
+
+        //dealer info//
+        var custom47 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Six Robblees\'</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.sixrobblees.com/">'+
+            'Six Robblees\' Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Aloha Toppers//
+
+        var marker48 = new google.maps.Marker({
+          position: {lat: 21.383772, lng: -157.952371},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Aloha Toppers'
+        });
+        marker48.addListener('click', function() {
+          custom48.open(map, marker48);
+        });
+
+        //dealer info//
+        var custom48 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Aloha Toppers</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.alohatoppers.com/">'+
+            'Aloha Toppers Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Cap-it//
+
+        var marker49 = new google.maps.Marker({
+          position: {lat: 49.899834, lng: -119.411535},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Cap-it'
+        });
+        marker49.addListener('click', function() {
+          custom49.open(map, marker49);
+        });
+
+        //dealer info//
+        var custom49 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Cap-it</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://cap-it.com/">'+
+            'Cap-it Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//CTP Distributors//
+
+        var marker50 = new google.maps.Marker({
+          position: {lat: 53.544683, lng: -113.621228},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'CTP Distributors'
+        });
+        marker50.addListener('click', function() {
+          custom50.open(map, marker50);
+        });
+
+        //dealer info//
+        var custom50 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">CTP Distributors</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.ctpdistributorsinc.com/">'+
+            'CTP Distributors Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Tidy Truck //
+
+        var marker51 = new google.maps.Marker({
+          position: {lat: 53.257617, lng: -110.004299},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Tidy Truck'
+        });
+        marker51.addListener('click', function() {
+          custom51.open(map, marker51);
+        });
+
+        //dealer info//
+        var custom51 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Tidy Truck </h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.tidytruckboxliners.com/">'+
+            'Tidy Truck Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Ken Nerbas //
+
+        var marker52 = new google.maps.Marker({
+          position: {lat: 49.848634, lng: -99.941628},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Ken Nerbas'
+        });
+        marker52.addListener('click', function() {
+          custom52.open(map, marker52);
+        });
+
+        //dealer info//
+        var custom52 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Ken Nerbas</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://customautoandtruck.ca/">'+
+            'Ken Nerbas Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Action Car & Truck Acc.//
+
+        var marker53 = new google.maps.Marker({
+          position: {lat: 49.848634, lng: -99.941628},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Action Car & Truck Acc.'
+        });
+        marker53.addListener('click', function() {
+          custom52.open(map, marker52);
+        });
+
+        //dealer info//
+        var custom53 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Action Car & Truck Acc.</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://actiontrucks.com/">'+
+            'Action Car & Truck Acc. Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+//Marius Garon//
+
+        var marker54 = new google.maps.Marker({
+          position: {lat: 46.830992, lng: -71.348653},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Marius Garon'
+        });
+        marker54.addListener('click', function() {
+          custom54.open(map, marker54);
+        });
+
+        //dealer info//
+        var custom54 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Marius Garon</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.mariusgaron.com/index.php?langue=en">'+
+            'Marius Garon Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });
+
+
+//Kustom Auto Sound & Accs//
+
+        var marker55 = new google.maps.Marker({
+          position: {lat: 45.295480, lng: -66.041400},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Kustom Auto Sound & Accs'
+        });
+        marker55.addListener('click', function() {
+          custom55.open(map, marker55);
+        });
+
+        //dealer info//
+        var custom55 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Kustom Auto Sound & Accs</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.kustomautosj.com/">'+
+            'Kustom Auto Sound & Accs Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });        
+
+//Creative Auto Images//
+
+        var marker56 = new google.maps.Marker({
+          position: {lat: 45.378371, lng: -63.251414},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Creative Auto Images'
+        });
+        marker56.addListener('click', function() {
+          custom56.open(map, marker56);
+        });
+
+        //dealer info//
+        var custom56 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Creative Auto Images</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://creativeautoimages.ca/">'+
+            'Creative Auto Images Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });        
+
+//Action Car & Truck Acc.//
+
+        var marker57 = new google.maps.Marker({
+          position: {lat: 47.540047, lng: -52.801991},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Action Car & Truck Acc.'
+        });
+        marker57.addListener('click', function() {
+          custom57.open(map, marker57);
+        });
+
+        //dealer info//
+        var custom57 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Action Car & Truck Acc.</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://actiontrucks.com/">'+
+            'Action Car & Truck Acc. Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });  
+
+//Grandwest Auto: Myron Rudolf//
+
+        var marker58 = new google.maps.Marker({
+          position: {lat: 52.157924, lng: -106.652869},
+          map: map,
+          icon: extangE,
+          animation: google.maps.Animation.DROP,
+          title: 'Grandwest Auto: Myron Rudolf'
+        });
+        marker58.addListener('click', function() {
+          custom58.open(map, marker58);
+        });
+
+        //dealer info//
+        var custom58 = new google.maps.InfoWindow({
+          content: '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Grandwest Auto: Myron Rudolf</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Attribution: Uluru, <a href="http://www.grandwestauto.com/">'+
+            'Grandwest Auto: Myron Rudolf Website</a> '+
+            '(last visited June 22, 2009).</p>'+
+            '</div>'+
+            '</div>'
+        });  
+
+
+
+      }
+
+
+
+
+      
+
+
+
+
+
+//EXTANG ICON//
+            var extangE = {
+          path: 'M 117,308.85c0-105.18,84.83-190.76,189.09-190.76a186.29,186.29,0,0,1,93.51,25.21L142,403.22a190.61,190.61,0,0,1-25-94.36M187,24.27a305.48,305.48,0,0,0-52,28.47q-12.2,8.33-23.56,17.79A309.27,309.27,0,0,0,0,308.85a312.69,312.69,0,0,0,6.22,62.24c1,5,2.15,10,3.41,14.95C41.09,509.38,146.19,602.92,274.83,616.1a306.36,306.36,0,0,0,31.31,1.6q8.1,0,16.12-.43c1.65-.09,3.28-0.27,4.94-0.36,3.67-.27,7.35-0.49,11-0.9,1.86-.18,3.7-0.47,5.56-0.71,3.38-.42,6.79-0.83,10.15-1.36,1.87-.29,3.71-0.67,5.58-1,3.31-.6,6.63-1.17,9.9-1.88,1.78-.37,3.56-0.82,5.34-1.24,3.31-.77,6.63-1.53,9.91-2.42,1.66-.43,3.31-0.93,5-1.41,3.35-1,6.7-1.94,10-3,1.52-.5,3-1.05,4.56-1.56,3.39-1.15,6.78-2.34,10.13-3.62,1.38-.54,2.74-1.11,4.12-1.64,3.44-1.38,6.89-2.77,10.26-4.28,1.22-.53,2.42-1.11,3.62-1.66,3.52-1.61,7-3.27,10.45-5,1-.51,2.06-1.06,3.1-1.6,3.58-1.86,7.1-3.76,10.6-5.78q1.31-.71,2.58-1.48c3.64-2.11,7.22-4.29,10.74-6.57,0.71-.43,1.4-0.87,2.08-1.33q5.51-3.58,10.84-7.4,0.8-.54,1.58-1.14,5.54-4,10.9-8.26c0.37-.31.74-0.58,1.11-0.87q5.56-4.46,10.92-9.17l0.64-.56c3.72-3.28,7.37-6.67,10.92-10.14l0.18-.18q5.47-5.35,10.69-11l-83-83.72C412,475,361.93,499.61,306.14,499.61a186.57,186.57,0,0,1-70.35-13.82L481.47,238l87.21-88a309.08,309.08,0,0,0-84.3-92.13,305.73,305.73,0,0,0-39.24-24.14c-0.28-.13-0.55-0.28-0.82-0.43a301.84,301.84,0,0,0-41.77-17.55l-1.89-.65c-6.95-2.26-14-4.3-21.16-6.07-0.92-.23-1.86-0.43-2.79-0.65Q366.79,6,356.59,4.25c-0.74-.12-1.49-0.28-2.21-0.4C347.31,2.73,340.17,1.9,333,1.25,331.39,1.12,329.81,1,328.24.9c-7.3-.53-14.65-0.9-22.09-0.9A303.09,303.09,0,0,0,187,24.27',
+          fillColor: 'red',
+          fillOpacity: 0.9,
+          scale: .03,
+          strokeColor: 'red',
+          strokeWeight:.5,
+
+        };
+
+
+//MAP STYLES//
+
+
+        
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-AbgAZL5LYgqDYnhpsYogNIqXCuJFMK8&callback=initMap">
+    </script>
+
+
+
+    <script type="text/javascript">
+      $("#sexierclick").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#sexier").offset().top
+    }, 2000);
+});
+
+      $("#strongerclick").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#stronger").offset().top
+    }, 2000);
+
+    $("#smarterclick").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#smarter").offset().top
+    }, 2000);
+});
+
+
+    $("#6060click").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#map").offset().top
+    }, 2000);
+});
+
+});
+    </script>
+    
+    <script type="text/javascript">var elem = new Foundation.Orbit(element, options);</script>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
